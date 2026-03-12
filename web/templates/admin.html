@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero admin-hero">
+    <div>
+      <p class="eyebrow">Admin control room</p>
+      <h1>Admin</h1>
+      <p class="hero-copy">Monitor users, active sessions, concurrent streams, live device activity, and your current system snapshot.</p>
+    </div>
+    <div class="hero-actions search-stack">
+      <div class="search-card stats-card-inline">
+        <span class="search-label">Active streams</span>
+        <strong id="admin-active-streams">0</strong>
+      </div>
+      <div class="search-summary" id="admin-summary">Loading admin overview...</div>
+    </div>
+  </header>
+
+  <main class="dashboard-grid dashboard-grid-polished admin-grid">
+    <section class="card dashboard-highlight-card">
+      <div class="card-head compact-head">
+        <h2>System Snapshot</h2>
+        <span id="admin-platform">Platform</span>
+      </div>
+      <div class="dashboard-highlight-grid admin-stats-grid">
+        <article class="stat-tile feature-stat"><span class="stat-label">Users</span><strong id="admin-users">0</strong><p class="stat-subcopy">Registered accounts</p></article>
+        <article class="stat-tile feature-stat"><span class="stat-label">Admins</span><strong id="admin-admins">0</strong><p class="stat-subcopy">Privileged accounts</p></article>
+        <article class="stat-tile feature-stat"><span class="stat-label">Sessions</span><strong id="admin-sessions">0</strong><p class="stat-subcopy">Recently active</p></article>
+        <article class="stat-tile feature-stat accent-stat"><span class="stat-label">Storage</span><strong id="admin-storage">0 B</strong><p class="stat-subcopy">Cloud usage</p></article>
+        <article class="stat-tile feature-stat"><span class="stat-label">CPU</span><strong id="admin-cpu-percent">-</strong><p class="stat-subcopy" id="admin-cpu-note">Waiting for live metrics</p></article>
+        <article class="stat-tile feature-stat"><span class="stat-label">RAM</span><strong id="admin-memory-percent">-</strong><p class="stat-subcopy" id="admin-memory-note">Waiting for live metrics</p></article>
+      </div>
+    </section>
+
+    <section class="card dashboard-sidecard quick-actions-card">
+      <div class="card-head compact-head">
+        <h2>Host Info</h2>
+        <span id="admin-cpu-cores">0 cores</span>
+      </div>
+      <div class="list-stack" id="admin-system-list">
+        <p class="empty-state">Loading system info...</p>
+      </div>
+    </section>
+
+    <section class="card dashboard-sidecard quick-actions-card">
+      <div class="card-head compact-head">
+        <h2>Security Settings</h2>
+        <span id="admin-pin-setting-state">Disabled</span>
+      </div>
+      <div class="list-stack">
+        <article class="library-row">
+          <div>
+            <strong>Module PIN Lock</strong>
+            <div class="list-meta" id="admin-pin-setting-copy">PIN prompts are currently turned off for all users.</div>
+          </div>
+          <div class="file-actions">
+            <button class="file-action secondary" id="admin-toggle-pin-lock" type="button">Enable</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card dashboard-sidecard libraries-card">
+      <div class="card-head compact-head">
+        <h2>Concurrent Streams</h2>
+        <span id="admin-active-stream-count">0 items</span>
+      </div>
+      <div class="list-stack" id="admin-active-stream-list">
+        <p class="empty-state">No live streams right now.</p>
+      </div>
+    </section>
+
+    <section class="card shelf-card videos-shelf-card">
+      <div class="card-head compact-head">
+        <h2>Recent Sessions</h2>
+        <span id="admin-session-list-count">0 items</span>
+      </div>
+      <div class="list-stack" id="admin-session-list">
+        <p class="empty-state">Loading sessions...</p>
+      </div>
+    </section>
+
+    <section class="card shelf-card music-shelf-card admin-users-card">
+      <div class="card-head compact-head">
+        <h2>User Management</h2>
+        <span id="admin-user-count">0 items</span>
+      </div>
+      <div class="list-stack" id="admin-user-list">
+        <p class="empty-state">Loading users...</p>
+      </div>
+    </section>
+
+    <section class="card shelf-card music-shelf-card">
+      <div class="card-head compact-head">
+        <h2>Recent Streams</h2>
+        <span id="admin-recent-stream-count">0 items</span>
+      </div>
+      <div class="list-stack" id="admin-recent-streams">
+        <p class="empty-state">Loading streams...</p>
+      </div>
+    </section>
+
+    <section class="card shelf-card music-shelf-card">
+      <div class="card-head compact-head">
+        <h2>Popular This Week</h2>
+        <span id="admin-popular-count">0 items</span>
+      </div>
+      <div class="list-stack" id="admin-popular-streams">
+        <p class="empty-state">Loading popular media...</p>
+      </div>
+    </section>
+  </main>
+</div>
+{% endblock %}

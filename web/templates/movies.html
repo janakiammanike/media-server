@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero module-hero movies-hero">
+    <div class="module-hero-copy">
+      <p class="eyebrow">Video library</p>
+      <h1>Movies</h1>
+      <p class="hero-copy">Search, browse poster-rich cards, and jump into your own private screening room with one click.</p>
+      <div class="module-badge-row">
+        <span class="module-hero-badge">Cinema mode</span>
+        <span class="module-hero-badge">Poster shelf</span>
+        <span class="module-hero-badge">Instant playback</span>
+      </div>
+    </div>
+    <div class="hero-actions search-stack module-hero-side">
+      <label class="search-card" for="movie-search">
+        <span class="search-label">Find a movie</span>
+        <input id="movie-search" type="search" placeholder="Search by title, category, tag, or filename">
+      </label>
+      <div class="module-mini-panel">
+        <span class="search-label">Screening room</span>
+        <strong>Browse, open, watch</strong>
+        <span class="list-meta">Your video catalog stays one tap away.</span>
+      </div>
+      <div class="search-summary" id="movie-summary">Loading videos...</div>
+    </div>
+  </header>
+
+  <section class="card movie-library-card branded-module-card movies-library-card">
+    <div class="card-head">
+      <h2>All Videos</h2>
+      <span id="movie-count">0 items</span>
+    </div>
+    <div class="movie-grid" id="movie-grid">
+      <div class="loading-state">Loading videos...</div>
+    </div>
+  </section>
+</div>
+{% endblock %}

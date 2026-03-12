@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar dashboard-hero">
+    <div class="hero-copy-block">
+      <p class="eyebrow">Self-hosted media hub</p>
+      <h1>{{ app_name }}</h1>
+      <p class="hero-copy">Your movies, music, files, and library scans in one polished local control room.</p>
+      <div class="hero-inline-stats">
+        <div class="mini-stat"><span class="stat-label">Libraries</span><strong id="hero-library-count">0</strong></div>
+        <div class="mini-stat"><span class="stat-label">Recently scanned</span><strong id="hero-last-scan">Never</strong></div>
+      </div>
+    </div>
+    <div class="hero-actions dashboard-hero-actions">
+      <a href="/libraries" class="ghost-btn">Scan Library</a>
+      <a href="/movies" class="solid-btn" id="dashboard-open-movies">Browse Movies</a>
+      <a href="/music" class="ghost-btn" id="dashboard-open-music">Open Music</a>
+    </div>
+  </header>
+
+  <main class="dashboard-grid dashboard-grid-polished">
+    <section class="card launcher-card dashboard-launcher-card">
+      <div class="card-head compact-head">
+        <div>
+          <span class="card-kicker">App Launcher</span>
+          <h2>Your Apps</h2>
+        </div>
+        <span class="search-summary" id="dashboard-launcher-summary">Loading access...</span>
+      </div>
+      <div class="module-launcher-grid" id="dashboard-module-launcher">
+        <p class="empty-state">Loading your apps...</p>
+      </div>
+    </section>
+
+    <section class="card dashboard-highlight-card">
+      <div class="card-head">
+        <span class="card-kicker">System Overview</span>
+        <span class="status-pill" id="api-status">Connecting</span>
+      </div>
+      <div class="dashboard-highlight-grid">
+        <article class="stat-tile feature-stat">
+          <span class="stat-label">Videos</span>
+          <strong id="stat-videos">0</strong>
+          <p class="stat-subcopy">Ready for playback</p>
+        </article>
+        <article class="stat-tile feature-stat">
+          <span class="stat-label">Music</span>
+          <strong id="stat-music">0</strong>
+          <p class="stat-subcopy">Tracks in library</p>
+        </article>
+        <article class="stat-tile feature-stat">
+          <span class="stat-label">Files</span>
+          <strong id="stat-files">0</strong>
+          <p class="stat-subcopy">Cloud uploads</p>
+        </article>
+        <article class="stat-tile feature-stat accent-stat">
+          <span class="stat-label">Storage</span>
+          <strong id="stat-storage">0 B</strong>
+          <p class="stat-subcopy">Used in vault</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card dashboard-sidecard quick-actions-card">
+      <div class="card-head compact-head">
+        <h2>Quick Actions</h2>
+        <span class="search-summary">Today</span>
+      </div>
+      <div class="quick-action-stack">
+        <a class="quick-action" href="/libraries">
+          <span class="quick-action-title">Scan a library</span>
+          <span class="list-meta">Index new movies or music from a folder</span>
+        </a>
+        <a class="quick-action" href="/files" id="dashboard-open-files">
+          <span class="quick-action-title">Manage files</span>
+          <span class="list-meta">Upload, download, and clean cloud storage</span>
+        </a>
+        <a class="quick-action" href="/music" id="dashboard-open-playlists">
+          <span class="quick-action-title">Open playlists</span>
+          <span class="list-meta">Continue editing metadata and playlist mixes</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="card dashboard-sidecard libraries-card">
+      <div class="card-head compact-head">
+        <h2>Scanned Libraries</h2>
+        <span id="library-count">0 folders</span>
+      </div>
+      <div class="list-stack" id="library-list">
+        <p class="empty-state">Scan a media folder from the Libraries page to see it here.</p>
+      </div>
+    </section>
+
+    <section class="card shelf-card videos-shelf-card" id="dashboard-videos-section">
+      <div class="card-head compact-head">
+        <div>
+          <h2>Recent Videos</h2>
+          <div class="list-meta">Freshly indexed items from your movie library</div>
+        </div>
+        <a href="/movies" class="ghost-btn shelf-link">View all</a>
+      </div>
+      <div class="media-grid dashboard-media-grid" id="recent-videos">
+        <p class="empty-state">No videos found yet.</p>
+      </div>
+    </section>
+
+    <section class="card shelf-card music-shelf-card" id="dashboard-music-section">
+      <div class="card-head compact-head">
+        <div>
+          <h2>Recent Music</h2>
+          <div class="list-meta">Tracks ready for playback and playlisting</div>
+        </div>
+        <a href="/music" class="ghost-btn shelf-link">View all</a>
+      </div>
+      <div class="dashboard-track-list" id="recent-music">
+        <p class="empty-state">No tracks found yet.</p>
+      </div>
+    </section>
+  </main>
+</div>
+{% endblock %}
+

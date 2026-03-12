@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero">
+    <div>
+      <p class="eyebrow">User space</p>
+      <h1>My Space</h1>
+      <p class="hero-copy">See your account role, recent sessions, and playback history from one simple page.</p>
+    </div>
+    <div class="hero-actions search-stack">
+      <div class="search-card stats-card-inline">
+        <span class="search-label">Role</span>
+        <strong id="account-role">User</strong>
+      </div>
+      <div class="search-summary" id="account-summary">Loading account...</div>
+    </div>
+  </header>
+
+  <section class="card files-layout-card">
+    <div class="card-head compact-head">
+      <div>
+        <span class="card-kicker">Allowed Apps</span>
+        <h2>Open Your Modules</h2>
+      </div>
+      <span class="search-summary" id="account-launcher-summary">Loading access...</span>
+    </div>
+    <div class="module-launcher-grid account-launcher-grid" id="account-module-launcher">
+      <p class="empty-state">Loading your apps...</p>
+    </div>
+  </section>
+
+  <section class="card files-layout-card">
+    <div class="files-layout account-layout">
+      <div class="files-panel">
+        <div class="card-head compact-head">
+          <h2>Recent Streams</h2>
+          <span id="account-stream-count">0 items</span>
+        </div>
+        <div class="list-stack" id="account-streams">
+          <p class="empty-state">No streams yet.</p>
+        </div>
+      </div>
+
+      <aside class="upload-panel">
+        <div class="card-head compact-head">
+          <h2>Sessions</h2>
+          <span id="account-session-count">0 items</span>
+        </div>
+        <div class="list-stack" id="account-sessions">
+          <p class="empty-state">No sessions found.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+{% endblock %}

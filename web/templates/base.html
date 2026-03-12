@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }} | {{ app_name }}</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body data-protected="{{ 'true' if protected_page else 'false' }}" data-page="{{ page_title|lower }}">
+  <div class="top-nav-wrap">
+    <nav class="top-nav">
+      <a href="/" class="brand-mark">{{ app_name }}</a>
+      <div class="nav-links">
+        <a href="/">Dashboard</a>
+        <a href="/libraries">Libraries</a>
+        <a href="/movies" id="nav-movies-link">Movies</a>
+        <a href="/music" id="nav-music-link">Music</a>
+        <a href="/files" id="nav-files-link">Files</a>
+        <a href="/account" id="nav-account-link" hidden>My Space</a>
+        <a href="/admin" id="nav-admin-link" hidden>Admin</a>
+        <a href="/docs">API Docs</a>
+      </div>
+      <div class="auth-nav" id="auth-nav">
+        <a href="/login" class="ghost-btn auth-login-link" id="auth-login-link">Login</a>
+        <div class="auth-user" id="auth-user" hidden>
+          <span class="auth-chip" id="auth-username">Guest</span>
+          <button class="file-action secondary auth-logout-btn" id="auth-logout-btn" type="button">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
+  <div class="pin-modal-backdrop" id="pin-modal-backdrop" hidden>
+    <div class="pin-modal-card" role="dialog" aria-modal="true" aria-labelledby="pin-modal-title">
+      <p class="eyebrow">Module PIN</p>
+      <h2 id="pin-modal-title">Unlock Module</h2>
+      <p class="list-meta" id="pin-modal-copy">Enter your 4-digit PIN to continue.</p>
+      <form id="pin-modal-form" class="auth-form compact-form">
+        <label class="search-card" for="pin-modal-input">
+          <span class="search-label">4-digit PIN</span>
+          <input id="pin-modal-input" type="password" inputmode="numeric" maxlength="4" placeholder="1234" required>
+        </label>
+        <div class="file-actions">
+          <button class="solid-btn submit-btn" type="submit">Unlock</button>
+          <button class="ghost-btn" id="pin-modal-cancel" type="button">Cancel</button>
+        </div>
+      </form>
+      <p class="list-meta" id="pin-modal-status">PIN protected module.</p>
+    </div>
+  </div>
+  {% block body %}{% endblock %}
+  <script src="/static/app.js"></script>
+</body>
+</html>

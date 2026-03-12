@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero">
+    <div>
+      <p class="eyebrow">Playback</p>
+      <h1 id="player-title">Loading player</h1>
+      <p class="hero-copy" id="player-subtitle">Fetching video details from your library.</p>
+    </div>
+    <div class="hero-actions">
+      <a href="/movies" class="ghost-btn">Back to Movies</a>
+    </div>
+  </header>
+
+  <section class="card player-shell enhanced-player-shell">
+    <div>
+      <div class="player-stage">
+        <video id="video-player" controls preload="metadata" playsinline></video>
+      </div>
+      <section class="player-editor card inset-card media-control-panel">
+        <div class="card-head">
+          <h2>Playback Controls</h2>
+          <span id="video-control-status">Ready</span>
+        </div>
+        <div class="media-control-grid">
+          <div class="control-cluster">
+            <button class="file-action secondary media-control-btn" id="video-previous-btn" type="button">Previous</button>
+            <button class="file-action secondary media-control-btn" id="video-backward-btn" type="button">-10s</button>
+            <button class="file-action secondary media-control-btn" id="video-forward-btn" type="button">+10s</button>
+            <button class="file-action secondary media-control-btn" id="video-next-btn" type="button">Next</button>
+          </div>
+          <div class="control-cluster compact-cluster">
+            <label class="search-card inline-control" for="video-volume">
+              <span class="search-label">Volume</span>
+              <input id="video-volume" type="range" min="0" max="1" step="0.05" value="1">
+            </label>
+            <label class="toggle-control" for="video-autoplay">
+              <input id="video-autoplay" type="checkbox">
+              <span>Autoplay next</span>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="player-editor card inset-card">
+        <div class="card-head">
+          <h2>Edit Metadata</h2>
+          <span id="player-save-status">Loaded</span>
+        </div>
+        <form id="video-metadata-form" class="metadata-form">
+          <div class="metadata-grid">
+            <label class="search-card"><span class="search-label">Title</span><input id="video-edit-title" type="text"></label>
+            <label class="search-card"><span class="search-label">Genre</span><input id="video-edit-genre" type="text"></label>
+            <label class="search-card"><span class="search-label">Category</span><input id="video-edit-category" type="text" placeholder="Action, Family, Documentary"></label>
+            <label class="search-card"><span class="search-label">Year</span><input id="video-edit-year" type="number"></label>
+            <label class="search-card metadata-span-2"><span class="search-label">Poster / Artwork URL</span><input id="video-edit-artwork" type="text" placeholder="https://..."></label>
+            <label class="search-card metadata-span-2"><span class="search-label">Upload artwork</span><input id="video-artwork-file" type="file" accept="image/*"></label>
+            <label class="search-card metadata-span-2"><span class="search-label">Tags</span><input id="video-edit-tags" type="text" placeholder="hero, drama, weekend"></label>
+            <label class="search-card metadata-span-2"><span class="search-label">Description</span><textarea id="video-edit-description" rows="4" placeholder="Short movie summary"></textarea></label>
+          </div>
+          <button type="submit" class="solid-btn submit-btn">Save Metadata</button>
+        </form>
+      </section>
+    </div>
+
+    <aside class="player-sidecard">
+      <div class="artwork-frame" id="player-artwork">VID</div>
+      <p class="card-kicker">Now Playing</p>
+      <strong id="player-name">Select a title</strong>
+      <div class="list-stack player-meta-stack">
+        <div class="player-meta-row"><span class="list-meta">Filename</span><strong id="player-filename">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Size</span><strong id="player-size">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Category</span><strong id="player-category">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Tags</span><strong id="player-tags">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Description</span><strong id="player-description">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Library path</span><strong id="player-path">-</strong></div>
+      </div>
+    </aside>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell auth-shell">
+  <section class="card auth-card">
+    <div class="auth-copy">
+      <p class="eyebrow">Secure access</p>
+      <h1>Welcome back</h1>
+      <p class="hero-copy">Sign in to access your dashboard, movies, music, and cloud files. New here? Create an account in a few seconds.</p>
+    </div>
+
+    <div class="auth-panels">
+      <section class="auth-panel">
+        <div class="card-head">
+          <h2>Login</h2>
+          <span>Existing user</span>
+        </div>
+        <form id="login-form" class="auth-form">
+          <label class="search-card">
+            <span class="search-label">Username</span>
+            <input name="username" type="text" minlength="3" required>
+          </label>
+          <label class="search-card">
+            <span class="search-label">Password</span>
+            <input name="password" type="password" minlength="4" required>
+          </label>
+          <button type="submit" class="solid-btn submit-btn">Login</button>
+        </form>
+        <p class="list-meta" id="login-status">Use your existing MediaVault account.</p>
+      </section>
+
+      <section class="auth-panel">
+        <div class="card-head">
+          <h2>Create Account</h2>
+          <span>New user</span>
+        </div>
+        <form id="register-form" class="auth-form">
+          <label class="search-card">
+            <span class="search-label">Username</span>
+            <input name="username" type="text" minlength="3" required>
+          </label>
+          <label class="search-card">
+            <span class="search-label">Password</span>
+            <input name="password" type="password" minlength="4" required>
+          </label>
+          <button type="submit" class="ghost-btn submit-btn" style="border:1px solid rgba(24,33,39,0.08);">Create Account</button>
+        </form>
+        <p class="list-meta" id="register-status">Register once and you'll stay signed in on this browser.</p>
+      </section>
+    </div>
+  </section>
+</div>
+{% endblock %}

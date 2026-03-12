@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar libraries-hero compact-hero">
+    <div>
+      <p class="eyebrow">Library management</p>
+      <h1>Libraries</h1>
+      <p class="hero-copy">Scan folders, monitor indexing history, and keep your movies and music shelves fresh without touching API docs.</p>
+    </div>
+    <div class="hero-actions libraries-hero-stats">
+      <div class="search-card stats-card-inline compact-stat-card">
+        <span class="search-label">Known libraries</span>
+        <strong id="libraries-summary-count">0</strong>
+      </div>
+      <div class="search-card stats-card-inline compact-stat-card">
+        <span class="search-label">Latest scan</span>
+        <strong id="libraries-last-scan">Never</strong>
+      </div>
+      <div class="search-summary" id="libraries-summary">Ready to scan</div>
+    </div>
+  </header>
+
+  <section class="card libraries-layout-card">
+    <div class="libraries-layout">
+      <aside class="upload-panel libraries-sidebar">
+        <div class="card-head compact-head">
+          <h2>Scan New Folder</h2>
+          <span class="meta-chip muted-chip">Protected</span>
+        </div>
+        <form id="library-scan-form" class="upload-form compact-form">
+          <label class="search-card">
+            <span class="search-label">Folder path</span>
+            <input id="library-folder" name="folder_path" type="text" placeholder="C:/Users/janak/Videos/media" required>
+          </label>
+          <label class="search-card">
+            <span class="search-label">Media type</span>
+            <select id="library-media-type" name="media_type" class="styled-select">
+              <option value="all">All media</option>
+              <option value="video">Video only</option>
+              <option value="music">Music only</option>
+            </select>
+          </label>
+          <button type="submit" class="solid-btn submit-btn">Scan Library</button>
+        </form>
+        <p class="list-meta" id="library-scan-status">Enter a local folder path to begin scanning.</p>
+
+        <div class="card-head compact-head top-gap">
+          <h2>Quick Tips</h2>
+          <span class="search-summary">Best results</span>
+        </div>
+        <div class="quick-action-stack">
+          <div class="quick-action static-action">
+            <span class="quick-action-title">Use clean folders</span>
+            <span class="list-meta">Separate Movies and Music folders give cleaner metadata and counts.</span>
+          </div>
+          <div class="quick-action static-action">
+            <span class="quick-action-title">Prefer forward slashes</span>
+            <span class="list-meta">Paths like `C:/Users/janak/Videos/media` work smoothly in the scanner.</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="libraries-main">
+        <section class="files-panel libraries-panel-main">
+          <div class="card-head compact-head">
+            <div>
+              <h2>Indexed Libraries</h2>
+              <div class="list-meta">Folders already scanned into MediaVault</div>
+            </div>
+            <span id="libraries-count">0 items</span>
+          </div>
+          <div class="libraries-card-grid" id="libraries-grid">
+            <p class="empty-state">No libraries scanned yet.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

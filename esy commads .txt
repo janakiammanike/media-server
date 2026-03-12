@@ -1,0 +1,3 @@
+>python -m uvicorn main:app --reload
+
+python desktop_app.py

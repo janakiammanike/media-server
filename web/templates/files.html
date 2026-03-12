@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero module-hero files-hero">
+    <div class="module-hero-copy">
+      <p class="eyebrow">Cloud storage</p>
+      <h1>Files</h1>
+      <p class="hero-copy">Run your own private vault for uploads, downloads, organized storage, and day-to-day file management.</p>
+      <div class="module-badge-row">
+        <span class="module-hero-badge">Private vault</span>
+        <span class="module-hero-badge">Fast uploads</span>
+        <span class="module-hero-badge">Storage overview</span>
+      </div>
+    </div>
+    <div class="hero-actions search-stack module-hero-side">
+      <div class="search-card stats-card-inline">
+        <span class="search-label">Storage used</span>
+        <strong id="files-storage">0 B</strong>
+      </div>
+      <div class="module-mini-panel">
+        <span class="search-label">Vault mode</span>
+        <strong>Drop, store, retrieve</strong>
+        <span class="list-meta">A focused workspace for self-hosted file access.</span>
+      </div>
+      <div class="search-summary" id="files-summary">Loading files...</div>
+    </div>
+  </header>
+
+  <section class="card files-layout-card branded-module-card files-layout-shell">
+    <div class="files-layout">
+      <div class="upload-panel">
+        <div class="card-head">
+          <h2>Upload File</h2>
+          <span>Folder: /</span>
+        </div>
+        <form id="upload-form" class="upload-form">
+          <label class="search-card upload-card" for="upload-input">
+            <span class="search-label">Choose file</span>
+            <input id="upload-input" name="file" type="file" required>
+          </label>
+          <button type="submit" class="solid-btn submit-btn">Upload to MediaVault</button>
+        </form>
+        <p class="list-meta" id="upload-status">No upload in progress.</p>
+      </div>
+
+      <div class="files-panel">
+        <div class="card-head">
+          <h2>Stored Files</h2>
+          <span id="files-count">0 items</span>
+        </div>
+        <div class="files-grid" id="files-grid">
+          <p class="empty-state">No files uploaded yet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero">
+    <div>
+      <p class="eyebrow">Playlist playback</p>
+      <h1 id="playlist-title">Loading playlist</h1>
+      <p class="hero-copy" id="playlist-subtitle">Fetching playlist items and artwork.</p>
+    </div>
+    <div class="hero-actions">
+      <a href="/music" class="ghost-btn">Back to Music</a>
+    </div>
+  </header>
+
+  <section class="card player-shell enhanced-player-shell">
+    <div class="playlist-stage" id="playlist-stage">
+      <div class="loading-state">Loading playlist...</div>
+    </div>
+    <aside class="player-sidecard">
+      <div class="artwork-frame" id="playlist-artwork">PL</div>
+      <p class="card-kicker">Playlist Details</p>
+      <strong id="playlist-name">-</strong>
+      <div class="list-stack player-meta-stack">
+        <div class="player-meta-row"><span class="list-meta">Type</span><strong id="playlist-type">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Description</span><strong id="playlist-description">-</strong></div>
+        <div class="player-meta-row"><span class="list-meta">Created by</span><strong id="playlist-created-by">-</strong></div>
+      </div>
+    </aside>
+  </section>
+</div>
+
+<div class="audio-dock" id="audio-dock" hidden>
+  <div class="audio-dock-main">
+    <div class="audio-art" id="audio-artwork">AUD</div>
+    <div>
+      <strong id="audio-title">No track selected</strong>
+      <div class="list-meta" id="audio-subtitle">Pick a song from this playlist</div>
+    </div>
+  </div>
+  <audio id="audio-player" controls preload="metadata"></audio>
+</div>
+{% endblock %}

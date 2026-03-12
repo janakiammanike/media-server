@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page-shell">
+  <header class="hero-bar compact-hero module-hero music-hero">
+    <div class="module-hero-copy">
+      <p class="eyebrow">Audio library</p>
+      <h1>Music</h1>
+      <p class="hero-copy">Shape your personal listening studio with metadata tools, playlist curation, artwork, and instant playback.</p>
+      <div class="module-badge-row">
+        <span class="module-hero-badge">Listening studio</span>
+        <span class="module-hero-badge">Playlist builder</span>
+        <span class="module-hero-badge">Metadata desk</span>
+      </div>
+    </div>
+    <div class="hero-actions search-stack module-hero-side">
+      <label class="search-card" for="music-search">
+        <span class="search-label">Find a track</span>
+        <input id="music-search" type="search" placeholder="Search title, artist, album, category, tag">
+      </label>
+      <div class="module-mini-panel">
+        <span class="search-label">Now building</span>
+        <strong>Your next mix starts here</strong>
+        <span class="list-meta">Edit tracks, sequence playlists, and hit play without leaving the page.</span>
+      </div>
+      <div class="search-summary" id="music-summary">Loading tracks...</div>
+    </div>
+  </header>
+
+  <section class="card music-layout-card branded-module-card music-layout-shell">
+    <div class="music-layout two-panel-layout">
+      <div>
+        <div class="card-head">
+          <h2>All Tracks</h2>
+          <span id="music-count">0 items</span>
+        </div>
+        <div class="music-grid" id="music-grid">
+          <div class="loading-state">Loading tracks...</div>
+        </div>
+      </div>
+
+      <aside class="playlist-panel metadata-panel">
+        <div class="card-head">
+          <h2>Edit Track</h2>
+          <span id="track-save-status">Select a track</span>
+        </div>
+        <form id="track-metadata-form" class="metadata-form compact-form">
+          <label class="search-card"><span class="search-label">Title</span><input id="track-edit-title" type="text"></label>
+          <label class="search-card"><span class="search-label">Artist</span><input id="track-edit-artist" type="text"></label>
+          <label class="search-card"><span class="search-label">Album</span><input id="track-edit-album" type="text"></label>
+          <label class="search-card"><span class="search-label">Genre</span><input id="track-edit-genre" type="text"></label>
+          <label class="search-card"><span class="search-label">Category</span><input id="track-edit-category" type="text"></label>
+          <label class="search-card"><span class="search-label">Year</span><input id="track-edit-year" type="number"></label>
+          <label class="search-card"><span class="search-label">Tags</span><input id="track-edit-tags" type="text"></label>
+          <label class="search-card"><span class="search-label">Description</span><textarea id="track-edit-description" rows="3"></textarea></label>
+          <label class="search-card"><span class="search-label">Artwork URL</span><input id="track-edit-artwork" type="text"></label>
+          <label class="search-card"><span class="search-label">Upload artwork</span><input id="track-artwork-file" type="file" accept="image/*"></label>
+          <button type="submit" class="solid-btn submit-btn">Save Track Metadata</button>
+        </form>
+
+        <div class="card-head top-gap">
+          <h2>Playlists</h2>
+          <span id="playlist-count">0 items</span>
+        </div>
+        <form id="playlist-form" class="auth-form compact-form">
+          <label class="search-card"><span class="search-label">Playlist name</span><input id="playlist-name" type="text" placeholder="Road trip mix" required></label>
+          <label class="search-card"><span class="search-label">Description</span><input id="playlist-description" type="text" placeholder="Optional note"></label>
+          <label class="search-card"><span class="search-label">Type</span><select id="playlist-type" class="styled-select"><option value="mixed">Mixed</option><option value="music">Music</option><option value="video">Video</option></select></label>
+          <label class="search-card"><span class="search-label">Upload playlist art</span><input id="playlist-artwork-file" type="file" accept="image/*"></label>
+          <button type="submit" class="solid-btn submit-btn">Create Playlist</button>
+        </form>
+        <p class="list-meta" id="playlist-status">Create a playlist, then add tracks from the cards.</p>
+        <div class="list-stack" id="playlist-list"><p class="empty-state">No playlists created yet.</p></div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<div class="audio-dock" id="audio-dock" hidden>
+  <div class="audio-dock-main">
+    <div class="audio-art" id="audio-artwork">AUD</div>
+    <div>
+      <strong id="audio-title">No track selected</strong>
+      <div class="list-meta" id="audio-subtitle">Pick a song from your library</div>
+    </div>
+  </div>
+  <div class="audio-dock-controls">
+    <div class="control-cluster">
+      <button class="file-action secondary media-control-btn" id="audio-previous-btn" type="button">Previous</button>
+      <button class="file-action secondary media-control-btn" id="audio-backward-btn" type="button">-10s</button>
+      <button class="file-action secondary media-control-btn" id="audio-forward-btn" type="button">+10s</button>
+      <button class="file-action secondary media-control-btn" id="audio-next-btn" type="button">Next</button>
+    </div>
+    <div class="control-cluster compact-cluster">
+      <label class="search-card inline-control" for="audio-volume">
+        <span class="search-label">Volume</span>
+        <input id="audio-volume" type="range" min="0" max="1" step="0.05" value="1">
+      </label>
+      <label class="toggle-control" for="audio-autoplay">
+        <input id="audio-autoplay" type="checkbox">
+        <span>Autoplay next</span>
+      </label>
+    </div>
+    <audio id="audio-player" controls preload="metadata"></audio>
+  </div>
+</div>
+{% endblock %}

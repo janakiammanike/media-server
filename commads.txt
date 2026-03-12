@@ -1,0 +1,33 @@
+Run చేయడానికి main commands ఇవి:
+
+Web app start:
+```powershell
+cd "D:\apps\media server"
+pip install -r requirements.txt
+python -m uvicorn main:app --reload
+```
+
+Desktop GUI start:
+```powershell
+cd "D:\apps\media server"
+python desktop_app.py
+```
+
+Mobile access కోసం same network లో server start:
+```powershell
+cd "D:\apps\media server"
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+PC IP చూడడానికి:
+```powershell
+ipconfig
+```
+
+EXE build:
+```powershell
+cd "D:\apps\media server"
+build_desktop_exe.bat
+```
+
+If you want, నేను next message లో `daily use commands only` short list కూడా ఇస్తాను.
